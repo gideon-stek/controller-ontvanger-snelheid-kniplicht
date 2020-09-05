@@ -1,0 +1,22 @@
+{
+    "name": "controller ontvanger snelheid kniplicht",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "WSJoyStick": "github:waveshare/joystick#e090d95944ae0fc614f708461498dbf875ef1243",
+        "pxt-kitronik-move-motor": "github:kitronikltd/pxt-kitronik-move-motor#v0.1.39"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
