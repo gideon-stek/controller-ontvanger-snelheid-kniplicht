@@ -1,3 +1,28 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    if (receivedNumber == 1) {
+        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, Snelheid * 10)
+    } else if (receivedNumber == 2) {
+        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Reverse, Snelheid * 10)
+    } else if (receivedNumber == 3) {
+        Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Left, Snelheid * 10)
+    } else if (receivedNumber == 4) {
+        Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Right, Snelheid * 10)
+    } else if (receivedNumber == 5) {
+        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Right, Snelheid * 10)
+    } else if (receivedNumber == 6) {
+        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Left, Snelheid * 10)
+    } else if (receivedNumber == 7) {
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
+        music.playTone(988, music.beat(BeatFraction.Breve))
+    } else if (receivedNumber == 8) {
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
+        music.playTone(988, music.beat(BeatFraction.Breve))
+    } else {
+        Kitronik_Move_Motor.stop()
+    }
+})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "Sirene stop") {
         Kitronik_Move_Motor.soundSiren(Kitronik_Move_Motor.OnOffSelection.Off)
@@ -33,31 +58,6 @@ radio.onReceivedString(function (receivedString) {
         }
         moveMotorZIP.clear()
         moveMotorZIP.show()
-    }
-})
-radio.onReceivedValue(function (name, value) {
-    if (name == "Up" && value == 1) {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, Snelheid * 10)
-    } else if (name == "Down" && value == 1) {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Reverse, Snelheid * 10)
-    } else if (name == "Left" && value == 1) {
-        Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Left, Snelheid * 10)
-    } else if (name == "Right" && value == 1) {
-        Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Right, Snelheid * 10)
-    } else if (name == "Up right" && value == 1) {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Right, Snelheid * 10)
-    } else if (name == "Up left" && value == 1) {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Left, Snelheid * 10)
-    } else if (name == "Down right" && value == 1) {
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
-        music.playTone(988, music.beat(BeatFraction.Breve))
-    } else if (name == "Down left" && value == 1) {
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
-        music.playTone(988, music.beat(BeatFraction.Breve))
-    } else {
-        Kitronik_Move_Motor.stop()
     }
 })
 let moveMotorZIP: Kitronik_Move_Motor.MoveMotorZIP = null
