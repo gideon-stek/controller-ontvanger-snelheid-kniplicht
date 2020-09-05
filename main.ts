@@ -12,13 +12,9 @@ radio.onReceivedNumber(function (receivedNumber) {
     } else if (receivedNumber == 6) {
         Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Left, Snelheid * 10)
     } else if (receivedNumber == 7) {
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
-        music.playTone(988, music.beat(BeatFraction.Breve))
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorRight, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 7)
     } else if (receivedNumber == 8) {
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 10)
-        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 3)
-        music.playTone(988, music.beat(BeatFraction.Breve))
+        Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.MotorLeft, Kitronik_Move_Motor.MotorDirection.Reverse, Snelheid * 7)
     } else {
         Kitronik_Move_Motor.stop()
     }
